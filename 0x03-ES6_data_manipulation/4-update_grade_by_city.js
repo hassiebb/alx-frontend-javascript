@@ -1,8 +1,19 @@
-export default function updateStudentGradeByCity(arr, city, newGrades) {
-  return arr
+import getListStudents from "./0-get_list_students.js";
+
+function updateStudentGradeByCity(students, city, newGrades) {
+  return students
     .filter(student => student.location === city)
     .map(student => {
-      let grade = newGrades.find(g => g.studentId === student.id);
-      return { ...student, grade: (grade && grade.grade) || 'N/A' };
+      const matchingGrade = newGrades.find(grade => grade.studentId === student.id);
+      const updatedGrade = matchingGrade ? matchingGrade.grade : 'N/A';
+      
+      return {
+        id: student.id,
+        firstName: student.firstName,
+        location: student.location,
+        grade: updatedGrade,
+      };
     });
 }
+
+export default updateStudentGradeByCity;
