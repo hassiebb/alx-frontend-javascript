@@ -1,6 +1,3 @@
-const class2019 = new HolbertonClass(2019, 'San Francisco');
-const class2020 = new HolbertonClass(2020, 'San Francisco');
-
 export class HolbertonClass {
   constructor(year, location) {
     this._year = year;
@@ -36,4 +33,10 @@ export class StudentHolberton {
   }
 }
 
-export const listOfStudents = [student1, student2, student3, student4, student5];
+export const listOfStudents = [
+  new StudentHolberton('Guillaume', 'Salva', new HolbertonClass(2020, 'San Francisco')),
+  new StudentHolberton('John', 'Doe', new HolbertonClass(2020, 'San Francisco')),
+  new StudentHolberton('Albert', 'Clinton', new HolbertonClass(2019, 'San Francisco')),
+  new StudentHolberton('Donald', 'Bush', new HolbertonClass(2019, 'San Francisco')),
+  new StudentHolberton('Jason', 'Sandler', new HolbertonClass(2019, 'San Francisco')),
+];
