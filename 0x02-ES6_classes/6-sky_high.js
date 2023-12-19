@@ -1,7 +1,9 @@
 // 5-building.js
-
 export default class Building {
   constructor(sqft) {
+    if (this.constructor !== Building && typeof this.evacuationWarningMessage !== 'function') {
+      throw new Error('Class extending Building must implement evacuationWarningMessage');
+    }
     this._sqft = sqft;
   }
 
@@ -15,7 +17,6 @@ export default class Building {
 }
 
 // 6-sky_high.js
-
 import Building from './5-building.js';
 
 export default class SkyHighBuilding extends Building {
@@ -29,6 +30,6 @@ export default class SkyHighBuilding extends Building {
   }
 
   evacuationWarningMessage() {
-    return `Evacuate slowly the ${this._floors} floors.`;
+    return `Evacuate slowly the ${this._floors} floors`;
   }
 }
